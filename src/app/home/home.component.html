@@ -1,53 +1,49 @@
 <body class="flex justify-center items-center min-h-screen bg-gray-100">
 
-    <div class="relative p-10 bg-white rounded-2xl shadow-lg max-w-lg w-full">
-      <!-- Decorative Background -->
-      <div class="absolute inset-0 -z-10 transform rotate-6 bg-green-500 rounded-2xl"></div>
-  
-      <h2 class="text-xl font-semibold text-gray-800">
-        <span class="text-green-600 font-bold">Bienvenue !</span> Configurez votre quiz pour commencer.
-      </h2>
-  
-      <form class="mt-5 space-y-4">
-        <!-- Pseudo -->
-        <div>
-          <label class="block font-medium text-gray-700">Pseudo*</label>
-          <input type="text" placeholder="Entrez votre pseudo"
-            class="w-full mt-1 p-3 border rounded-md focus:ring-2 focus:ring-green-500 outline-none">
-        </div>
-  
-        <!-- Catégorie -->
-        <div>
-          <label class="block font-medium text-gray-700">Catégorie*</label>
-          <select class="w-full mt-1 p-3 border rounded-md focus:ring-2 focus:ring-green-500 outline-none">
-            <option disabled selected>Choisissez une catégorie</option>
-            <option value="9">Culture Générale</option>
-            <option value="21">Sport</option>
-            <option value="23">Histoire</option>
-            <option value="18">Informatique</option>
-            <option value="17">Science & Nature</option>
-            <!-- زيد الفئات اللي محتاج -->
-          </select>
-        </div>
-  
-        <!-- Difficulté -->
-        <div>
-          <label class="block font-medium text-gray-700">Difficulté*</label>
-          <select class="w-full mt-1 p-3 border rounded-md focus:ring-2 focus:ring-green-500 outline-none">
-            <option disabled selected>Choisissez la difficulté</option>
-            <option value="easy">Facile</option>
-            <option value="medium">Moyenne</option>
-            <option value="hard">Difficile</option>
-          </select>
-        </div>
-  
-        <!-- Bouton de démarrage -->
-        <button type="submit"
-          class="w-full py-3 text-white bg-green-600 rounded-md hover:bg-green-700 transition">
-          Démarrer le Quiz
-        </button>
-      </form>
-    </div>
-  
-  </body>
-  
+  <div class="relative p-10 bg-white rounded-2xl shadow-lg max-w-lg w-full">
+    <!-- Decorative Background -->
+    <div class="absolute inset-0 -z-10 transform rotate-6 bg-green-500 rounded-2xl"></div>
+
+    <h2 class="text-xl font-semibold text-gray-800">
+      <span class="text-green-600 font-bold">Bienvenue !</span> Configurez votre quiz pour commencer.
+    </h2>
+
+    <form class="mt-5 space-y-4">
+      <!-- Pseudo -->
+      <div>
+        <label class="block font-medium text-gray-700">Pseudo*</label>
+        <input type="text" placeholder="Entrez votre pseudo"
+          class="w-full mt-1 p-3 border rounded-md focus:ring-2 focus:ring-green-500 outline-none">
+      </div>
+
+      <!-- Catégorie -->
+      <div>
+        <label for="category">categoris</label>
+        <select id="category" [(ngModel)]="selectedCategory" name="category" class="border rounded px-4 py-2 w-full">
+          <option *ngFor="let category of categories" [value]="category.id">
+            {{ category.name }}
+          </option>
+        </select>
+        
+      </div>
+
+      <!-- Difficulté -->
+      <div>
+        <label class="block font-medium text-gray-700">Difficulté*</label>
+        <select class="w-full mt-1 p-3 border rounded-md focus:ring-2 focus:ring-green-500 outline-none">
+          <option disabled selected>Choisissez la difficulté</option>
+          <option value="easy">Facile</option>
+          <option value="medium">Moyenne</option>
+          <option value="hard">Difficile</option>
+        </select>
+      </div>
+
+      <!-- Bouton de démarrage -->
+      <button routerLink="/quiz" type="submit"
+        class="w-full py-3 text-white bg-green-600 rounded-md hover:bg-green-700 transition">
+        Démarrer le Quiz
+      </button>
+    </form>
+  </div>
+
+</body>
